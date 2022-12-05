@@ -17,7 +17,7 @@ string[] InputArray(int size)
         array[i] = Console.ReadLine();
         if (array[i].Length == 0)
         {
-            Console.WriteLine("Введите значение заново : ");
+            Console.Write("Введите значение заново : ");
             array[i] = Console.ReadLine();
         }
     }
@@ -63,5 +63,6 @@ Console.WriteLine();
 PrintArray(stringArray);
 Console.Write(" => ");
 PrintArray(newSortedArray);
-Console.Write(" Нажмите любую клавишу для завершения : ");
+Console.WriteLine();
+Console.Write("Нажмите любую клавишу для завершения : ");
 Console.ReadKey(true);
