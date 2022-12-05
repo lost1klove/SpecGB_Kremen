@@ -13,6 +13,7 @@ string[] InputArray(int size)
 
     for (int i = 0; i < size; i++)
     {
+        Console.Write($"Введите {i+1}-й элемент : ");
         array[i] = Console.ReadLine();
         if (array[i].Length == 0)
         {
@@ -28,30 +29,39 @@ void PrintArray(string[] array)
     Console.Write("[");
     for (int i = 0; i < array.Length; i++)
     {
-        if (i < array.Length - 1) System.Console.Write($"{array[i]} ; ");
-        else Console.Write($"{array[i]}");
+        if (i < array.Length - 1) Console.Write($"\"{array[i]}\" ; ");
+        else Console.Write($"\"{array[i]}\"");
     }
     Console.Write("]");
 }
 
-void PrintSortedArray(string[] array)
+string[] SortedArray(string[] array)
 {
-    Console.Write("[");
+    int count = 0;
+    int newCount = 0;
+    for (int i = 0; i < array.Length; i++)
+    {
+        if (array[i].Length <= 3) count++;
+    }
+    string[] newArray = new string[count];
+
     for (int i = 0; i < array.Length; i++)
     {
         if (array[i].Length <= 3)
         {
-            if (i < array.Length - 1) Console.Write($" {array[i]} ; " );
-            else Console.Write($"{array[i]}");
+            newArray[newCount] = array[i];
+            newCount++;
         }
     }
-    Console.Write("]");
+    return newArray;
 }
 
 
 stringArray = InputArray(arrayLength);
+string[] newSortedArray = SortedArray(stringArray);
 Console.WriteLine();
 PrintArray(stringArray);
-Console.Write("=>");
-PrintSortedArray(stringArray);
-Console.ReadLine();     
+Console.Write(" => ");
+PrintArray(newSortedArray);
+Console.Write(" Нажмите любую клавишу для завершения : ");
+Console.ReadKey(true);
