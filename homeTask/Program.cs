@@ -5,7 +5,6 @@
 
 Console.Write("Введите размер массива : ");
 int arrayLength = Convert.ToInt32(Console.ReadLine());
-string[] stringArray = new string[arrayLength];
 
 string[] InputArray(int size)
 {
@@ -45,19 +44,18 @@ string[] SortedArray(string[] array)
     }
     string[] newArray = new string[count];
 
-    for (int i = 0; i < array.Length; i++)
+    for (int j = 0; j < array.Length; j++)
     {
-        if (array[i].Length <= 3)
+        if (array[j].Length <= 3)
         {
-            newArray[newCount] = array[i];
+            newArray[newCount] = array[j];
             newCount++;
         }
     }
     return newArray;
 }
 
-
-stringArray = InputArray(arrayLength);
+string[] stringArray = InputArray(arrayLength);
 string[] newSortedArray = SortedArray(stringArray);
 Console.WriteLine();
 PrintArray(stringArray);
